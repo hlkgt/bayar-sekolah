@@ -8,8 +8,8 @@ export default function PrimaryButton({
         <button
             {...props}
             className={
-                `btn btn-primary capitalize text-lg bg-blue-600 text-white ${
-                    disabled && "bg-blue-200"
+                `btn btn-success capitalize text-lg bg-teal-400 text-white ${
+                    disabled && "opacity-80"
                 } ` + className
             }
             disabled={disabled}

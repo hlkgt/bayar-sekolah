@@ -19,8 +19,8 @@ const NavigatedLink = ({ isShow, handleShow }) => {
         },
         {
             icon: "bukuPinjaman",
-            name: "peminjaman",
-            path: "buku-pinjaman-perpustakaan",
+            name: "perpustakaan",
+            path: "perpustakaan",
         },
         {
             icon: "pengguna",
@@ -75,7 +75,9 @@ const NavigatedLink = ({ isShow, handleShow }) => {
                                               </button>
                                           </form>
                                       ) : (
-                                          <Link href={"/" + item.path}>
+                                          <Link
+                                              href={"/dashboard/" + item.path}
+                                          >
                                               <FontAwesomeIcon
                                                   icon={iconLink[item.icon]}
                                               />
@@ -100,7 +102,9 @@ const NavigatedLink = ({ isShow, handleShow }) => {
                                               </button>
                                           </form>
                                       ) : (
-                                          <Link href={"/" + item.path}>
+                                          <Link
+                                              href={"/dashboard/" + item.path}
+                                          >
                                               {item.name}
                                           </Link>
                                       )}
@@ -112,7 +116,7 @@ const NavigatedLink = ({ isShow, handleShow }) => {
             <aside
                 className={
                     (isShow ? "translate-x-0" : "-translate-x-[60rem]") +
-                    " w-full min-h-screen bg-slate-700 transition-all duration-700 ease-in-out fixed block lg:hidden"
+                    " w-full min-h-screen bg-slate-700 transition-all duration-700 ease-in-out fixed block lg:hidden z-50"
                 }
             >
                 <div className="h-16 flex justify-center items-center text-2xl font-bold text-slate-100 relative">
@@ -138,7 +142,9 @@ const NavigatedLink = ({ isShow, handleShow }) => {
                                     <button type="submit">{item.name}</button>
                                 </form>
                             ) : (
-                                <Link href={"/" + item.path}>{item.name}</Link>
+                                <Link href={"/dashboard/" + item.path}>
+                                    {item.name}
+                                </Link>
                             )}
                         </div>
                     );

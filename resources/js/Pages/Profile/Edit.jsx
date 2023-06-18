@@ -2,9 +2,17 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import DeleteUserForm from "./Partials/DeleteUserForm";
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
 import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
+import PostDataUser from "./Partials/PostDataUser";
 import { Head } from "@inertiajs/react";
+import UpdateDataUser from "./Partials/UpdateDataUser";
 
-export default function Edit({ auth, mustVerifyEmail, status }) {
+export default function Edit({
+    auth,
+    mustVerifyEmail,
+    status,
+    data_user,
+    flash,
+}) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -13,11 +21,29 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                     Profile
                 </h2>
             }
+            flash={flash}
         >
             <Head title="Dashboard" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                    <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                        {data_user === null ? (
+                            <PostDataUser
+                                mustVerifyEmail={mustVerifyEmail}
+                                status={status}
+                                className="max-w-xl"
+                            />
+                        ) : (
+                            <UpdateDataUser
+                                mustVerifyEmail={mustVerifyEmail}
+                                status={status}
+                                className="max-w-xl"
+                                data_user={data_user}
+                            />
+                        )}
+                    </div>
+
                     <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <UpdateProfileInformationForm
                             mustVerifyEmail={mustVerifyEmail}
