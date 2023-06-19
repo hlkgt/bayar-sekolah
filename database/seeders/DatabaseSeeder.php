@@ -2,11 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,10 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::insert([
-            'name' => 'Leo Marselio',
-            'email' => 'leo@gmail.com',
-            'password' => Hash::make('leoleoleo')
+        $this->call([
+            UserSeeder::class,
+            KategoriSeeder::class,
+            BukuSeeder::class
         ]);
     }
 }

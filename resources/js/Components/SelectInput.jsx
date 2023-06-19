@@ -4,14 +4,11 @@ const SelectedValue = ({ text, ...props }) => {
 
 const SelectInput = ({
     children,
-    className = "select select-bordered w-full",
+    className = "select select-bordered w-full capitalize",
     ...props
 }) => {
     return (
-        <select
-            {...props}
-            className={className}
-        >
+        <select {...props} className={className}>
             {children}
         </select>
     );

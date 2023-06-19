@@ -19,6 +19,10 @@ export default function Authenticated({ user, header, children, flash }) {
         });
     }, [flash]);
 
+    setTimeout(() => {
+        setIsMessage(false);
+    }, 5000);
+
     return (
         <div className="min-h-screen bg-gray-100 flex">
             <NavigatedLink handleShow={handleShow} isShow={showSidebar} />
@@ -50,6 +54,7 @@ export default function Authenticated({ user, header, children, flash }) {
                                     <FontAwesomeIcon
                                         icon={faXmark}
                                         onClick={() => setIsMessage(!isMessage)}
+                                        className="cursor-pointer"
                                     />
                                 </div>
                             );

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -33,6 +34,9 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
+            ], 'today' => [
+                'date' => Carbon::now()->format('Y-m-d'),
+                'time' => Carbon::now()->format('H:i'),
             ], 'flash' => [
                 'success' => fn () => $request->session()->get('success'),
                 'danger' => fn () => $request->session()->get('danger'),

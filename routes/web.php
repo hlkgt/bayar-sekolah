@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\PerpustakaanController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Absen;
+use App\Models\Perpustakaan;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +42,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard/absen-siswa', [AbsenController::class, 'index'])->name('absen.index');
     Route::post('/dashboard/absen-siswa/post', [AbsenController::class, 'store'])->name('absen.store');
+
+    Route::get('/dashboard/perpustakaan', [PerpustakaanController::class, 'index'])->name('perpustakaan.index');
+    Route::post('/dashboard/perpustakaan', [PerpustakaanController::class, 'store'])->name('create.peminjaman');
 });
 
 require __DIR__ . '/auth.php';
