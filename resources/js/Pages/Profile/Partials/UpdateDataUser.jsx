@@ -104,9 +104,7 @@ export default function UpdateDataUser({ className = "", data_user }) {
                                     key={index}
                                     value={item.value}
                                     text={item.text}
-                                    selected={
-                                        item.value === data.kelas ? true : false
-                                    }
+                                    data={data.kelas}
                                 />
                             );
                         })}
@@ -130,11 +128,7 @@ export default function UpdateDataUser({ className = "", data_user }) {
                                     key={index}
                                     value={item.value}
                                     text={item.text}
-                                    selected={
-                                        item.value === data.jurusan
-                                            ? true
-                                            : false
-                                    }
+                                    data={data.jurusan}
                                 />
                             );
                         })}

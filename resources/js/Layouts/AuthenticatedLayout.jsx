@@ -33,7 +33,7 @@ export default function Authenticated({ user, header, children, flash }) {
                         onClick={handleShow}
                         className="cursor-pointer"
                     ></FontAwesomeIcon>
-                    <h1>{header}</h1>
+                    {header}
                     <p className="absolute right-8 flex items-center gap-2">
                         {user.name}
                     </p>
