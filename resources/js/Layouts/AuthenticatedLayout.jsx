@@ -49,6 +49,7 @@ export default function Authenticated({ user, header, children, flash }) {
                                         (item === "success" ? "teal" : "red") +
                                         "-400 text-white flex justify-between items-center"
                                     }
+                                    key={index}
                                 >
                                     <h1>{flash[item]}</h1>
                                     <FontAwesomeIcon

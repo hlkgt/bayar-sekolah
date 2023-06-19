@@ -36,7 +36,7 @@ const Perpustakaan = ({ auth, flash, kategoris, dataUser, today }) => {
     };
 
     return (
-        <AuthenticatedLayout user={auth.user} header={"Absen"} flash={flash}>
+        <AuthenticatedLayout user={auth.user} header={"Perpustakaan"} flash={flash}>
             <Head title="Perpustakaan" />
             <div className="rounded-md bg-white p-5">
                 <form onSubmit={handleSubmit}>

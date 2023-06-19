@@ -6,11 +6,11 @@ import { Head, useForm } from "@inertiajs/react";
 import InputError from "@/Components/InputError";
 import SelectInput from "@/Components/SelectInput";
 
-const Absen = ({ auth, flash }) => {
+const Absen = ({ auth, flash, today }) => {
     const { data, setData, post, processing, errors } = useForm({
         user_id: auth.user.id,
-        tanggal: "",
-        jam: "",
+        tanggal: today.date,
+        jam: today.time,
         keterangan: "",
         deskripsi: "",
     });
@@ -38,14 +38,16 @@ const Absen = ({ auth, flash }) => {
                         <InputLabel>Tanggal Sekarang</InputLabel>
                         <TextInput
                             type="date"
-                            onChange={(e) => setData("tanggal", e.target.value)}
+                            value={today.date}
+                            readOnly={true}
                         ></TextInput>
                     </div>
                     <div className="mb-4 flex flex-col gap-2">
                         <InputLabel>Jam Sekarang</InputLabel>
                         <TextInput
                             type="time"
-                            onChange={(e) => setData("jam", e.target.value)}
+                            value={today.time}
+                            readOnly={true}
                         ></TextInput>
                     </div>
                     <div className="mb-4 flex flex-col gap-2">
