@@ -1,4 +1,4 @@
-export default function PrimaryButton({
+export default function SuccessButton({
     className = "",
     disabled,
     children,
@@ -8,7 +8,7 @@ export default function PrimaryButton({
         <button
             {...props}
             className={
-                `btn btn-success capitalize text-lg bg-teal-400 text-white ${
+                `btn capitalize text-lg bg-teal-400 text-white hover:bg-teal-700 ${
                     disabled && "opacity-80"
                 } ` + className
             }

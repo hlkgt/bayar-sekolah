@@ -1,9 +1,5 @@
-const SelectedValue = ({ text, value, data }) => {
-    return (
-        <option value={value} selected={data === value}>
-            {text}
-        </option>
-    );
+const SelectedValue = ({ text, ...props }) => {
+    return <option {...props}>{text}</option>;
 };
 
 const SelectInput = ({

@@ -15,7 +15,7 @@ const NavigatedLink = ({ isShow, handleShow }) => {
         {
             icon: "tagihan",
             name: "tagihan",
-            path: "bulanan",
+            path: "tagihan-bulanan",
         },
         {
             icon: "bukuPinjaman",

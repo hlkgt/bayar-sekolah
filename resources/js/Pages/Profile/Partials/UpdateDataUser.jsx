@@ -104,7 +104,7 @@ export default function UpdateDataUser({ className = "", data_user }) {
                                     key={index}
                                     value={item.value}
                                     text={item.text}
-                                    data={data.kelas}
+                                    selected={item.value === data.kelas}
                                 />
                             );
                         })}
@@ -128,7 +128,7 @@ export default function UpdateDataUser({ className = "", data_user }) {
                                     key={index}
                                     value={item.value}
                                     text={item.text}
-                                    data={data.jurusan}
+                                    selected={item.value === data.jurusan}
                                 />
                             );
                         })}

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\PerpustakaanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagihanController;
 use App\Models\Absen;
 use App\Models\Perpustakaan;
 use Illuminate\Foundation\Application;
@@ -45,6 +46,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard/perpustakaan', [PerpustakaanController::class, 'index'])->name('perpustakaan.index');
     Route::post('/dashboard/perpustakaan', [PerpustakaanController::class, 'store'])->name('create.peminjaman');
+
+    Route::get('/dashboard/tagihan-bulanan', [TagihanController::class, 'index'])->name('tagihan.index');
+    Route::get('/dashboard/tagihan-bulanan/payment', [TagihanController::class, 'getPayment'])->name('get.payment');
+    Route::post('/dashboard/tagihan-bulanan/payment', [TagihanController::class, 'payment'])->name('payment');
 });
 
 require __DIR__ . '/auth.php';

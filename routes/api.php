@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PerpustakaanController;
+use App\Http\Controllers\TagihanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/dashboard/perpustakaan/get-buku', [PerpustakaanController::class, 'getBukus'])->name('getBukus');
+// Route::post('/dashboard/tagihan-bulanan/payment', [TagihanController::class, 'payment'])->name('payment');
