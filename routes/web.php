@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagihanController;
 use App\Models\Absen;
 use App\Models\Perpustakaan;
+use App\Models\Tagihan;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -27,11 +28,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $absen = DB::table('absens')
-        ->join('users', 'users.id', '=', 'absens.user_id')
-        ->select('users.*', 'absens.*')
+    $absens = DB::table('absens')
+        ->join('data_users', 'data_users.user_id', '=', 'absens.user_id')
+        ->select('data_users.*', 'absens.*')
         ->get();
-    return Inertia::render('Dashboard', ['absen' => $absen]);
+    $pinjamans = DB::table('perpustakaans')
+        ->join('data_users', 'data_users.user_id', '=', 'perpustakaans.user_id')
+        ->select('data_users.*', 'perpustakaans.*')
+        ->get();
+    $tagihans = Tagihan::where('user_id', auth()->user()->id)->get();
+    return Inertia::render('Dashboard', ['absens' => $absens, 'tagihans' => $tagihans, 'pinjamans' => $pinjamans]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

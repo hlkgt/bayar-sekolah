@@ -1,8 +1,19 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import ListAbsen from "./Dashboard/ListAbsen";
+import ListTagihan from "./Dashboard/ListTagihan";
+import ListPinjaman from "./Dashboard/ListPinjaman";
 
-export default function Dashboard({ auth, absen, flash, today }) {
-    console.log(absen);
+export default function Dashboard({
+    auth,
+    absens,
+    tagihans,
+    pinjamans,
+    flash,
+}) {
+    console.log(absens);
+    console.log(pinjamans);
+    console.log(tagihans);
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -11,11 +22,21 @@ export default function Dashboard({ auth, absen, flash, today }) {
         >
             <Head title="Dashboard" />
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div className="p-4">
+                <div className="max-w-7xl mx-auto flex flex-col gap-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
-                            You're logged in!
+                        <div className="overflow-x-auto">
+                            <ListAbsen absens={absens} />
+                        </div>
+                    </div>
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="overflow-x-auto">
+                            <ListPinjaman pinjamans={pinjamans} />
+                        </div>
+                    </div>
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="overflow-x-auto">
+                            <ListTagihan tagihans={tagihans} />
                         </div>
                     </div>
                 </div>
